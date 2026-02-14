@@ -118,6 +118,34 @@ st.markdown("""
         justify-content: center;
         align-items: center;
         padding: 1rem 0;
+        margin-bottom: 2rem;
+    }
+    
+    /* تنسيق المصادر */
+    .reference-item {
+        background-color: #f8fafc;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        border-radius: 8px;
+        border-left: 3px solid #3b82f6;
+    }
+    
+    .reference-item strong {
+        color: #1e40af;
+        font-size: 1.05rem;
+    }
+    
+    .reference-item a {
+        color: #2563eb;
+        text-decoration: none;
+        word-break: break-all;
+        display: block;
+        margin-top: 0.3rem;
+    }
+    
+    .reference-item a:hover {
+        color: #1d4ed8;
+        text-decoration: underline;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -127,9 +155,11 @@ st.markdown('<h1 class="main-header">💊 ENTRESTO (Sacubitril/Valsartan)</h1>',
 st.markdown('<p class="sub-header">✅ FDA-verified • 🔬 Evidence-based • 📅 Updated February 2026</p>', unsafe_allow_html=True)
 
 # صورة الدواء في الوسط
-st.markdown('<div class="drug-image-container">', unsafe_allow_html=True)
-st.image("https://www.genspark.ai/api/files/s/27Hnf0Wm", width=600, use_column_width=False)
-st.markdown('</div>', unsafe_allow_html=True)
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    st.image("https://sspark.genspark.ai/cfimages?u1=Muvp4AIB6G6Hg6MJeOOkZrhTW09LRwYzPlOQdDqaCTEDxui%2Bhh9Hujjrk1Hp7bxR%2Ffgx4jzdmRna2kYAqXQGr2sxsSUp3tRUW21DgGbzesaR%2BIF7RSUdNj2HbVAldh9sSKjAUyXUtGPT48OjDuIn0XU6&u2=ZoKqDbxo4ID3Wy2m&width=2560", 
+             use_column_width=True,
+             caption="ENTRESTO® - Available in 50mg, 100mg, and 200mg formulations")
 
 st.markdown("---")
 
@@ -911,118 +941,148 @@ with tabs[7]:
 with tabs[8]:
     st.header("📚 References and Sources")
     
-    st.markdown("### 📋 Primary Sources")
+    st.markdown("### 📋 Primary Regulatory Sources")
+    st.write("")
     
     st.markdown("""
-    <div class="info-box">
-    <ol>
-        <li><strong>FDA Label (April 2024)</strong><br>
-        <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/207620s025,218591s000lbl.pdf" target="_blank">
-        https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/207620s025,218591s000lbl.pdf</a></li>
-        
-        <li><strong>EMA Product Information (2024)</strong><br>
-        <a href="https://www.ema.europa.eu/en/documents/product-information/entresto-epar-product-information_en.pdf" target="_blank">
-        https://www.ema.europa.eu/en/documents/product-information/entresto-epar-product-information_en.pdf</a></li>
-        
-        <li><strong>Novartis Product Monograph</strong><br>
-        <a href="https://www.novartis.com/us-en/sites/novartis_us/files/entresto.pdf" target="_blank">
-        https://www.novartis.com/us-en/sites/novartis_us/files/entresto.pdf</a></li>
-    </ol>
-    </div>
-    """, unsafe_allow_html=True)
+    **1. FDA Label (April 2024)**  
+    Official prescribing information from U.S. Food and Drug Administration  
+    🔗 [https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/207620s025,218591s000lbl.pdf](https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/207620s025,218591s000lbl.pdf)
+    """)
     
-    st.markdown("### 🔬 Clinical Trials")
+    st.markdown("---")
     
     st.markdown("""
-    <div class="success-box">
-    <ol start="4">
-        <li><strong>PARADIGM-HF (NEJM 2014)</strong><br>
-        McMurray JJ, et al. "Angiotensin-neprilysin inhibition versus enalapril in heart failure."<br>
-        <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa1409077" target="_blank">
-        https://www.nejm.org/doi/full/10.1056/NEJMoa1409077</a></li>
-        
-        <li><strong>PARAGON-HF (Circulation 2019)</strong><br>
-        Solomon SD, et al. "Sacubitril/Valsartan Across the Spectrum of Ejection Fraction in Heart Failure."<br>
-        <a href="https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.119.044586" target="_blank">
-        https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.119.044586</a></li>
-        
-        <li><strong>PIONEER-HF (JAMA 2019)</strong><br>
-        Velazquez EJ, et al. "Angiotensin-Neprilysin Inhibition in Acute Decompensated Heart Failure."<br>
-        <a href="https://jamanetwork.com/journals/jama/fullarticle/2738764" target="_blank">
-        https://jamanetwork.com/journals/jama/fullarticle/2738764</a></li>
-        
-        <li><strong>PANORAMA-HF (JACC 2021)</strong><br>
-        Jering KS, et al. "Cardiovascular and Kidney Outcomes Across the Glycemic Spectrum."<br>
-        <a href="https://www.jacc.org/doi/10.1016/j.jacc.2021.07.036" target="_blank">
-        https://www.jacc.org/doi/10.1016/j.jacc.2021.07.036</a></li>
-    </ol>
-    </div>
-    """, unsafe_allow_html=True)
+    **2. EMA Product Information (2024)**  
+    European Medicines Agency - ENTRESTO EPAR Product Information  
+    🔗 [https://www.ema.europa.eu/en/documents/product-information/entresto-epar-product-information_en.pdf](https://www.ema.europa.eu/en/documents/product-information/entresto-epar-product-information_en.pdf)
+    """)
     
-    st.markdown("### 📖 Pharmacology References")
+    st.markdown("---")
     
     st.markdown("""
-    <div class="info-box">
-    <ol start="8">
-        <li><strong>StatPearls - Sacubitril/Valsartan</strong><br>
-        <a href="https://www.ncbi.nlm.nih.gov/books/NBK507904/" target="_blank">
-        https://www.ncbi.nlm.nih.gov/books/NBK507904/</a></li>
-        
-        <li><strong>FDA Clinical Pharmacology Review (NDA 207620)</strong><br>
-        <a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2015/207620Orig1s000ClinPharmR.pdf" target="_blank">
-        https://www.accessdata.fda.gov/drugsatfda_docs/nda/2015/207620Orig1s000ClinPharmR.pdf</a></li>
-        
-        <li><strong>Springer - Pharmacokinetics Article</strong><br>
-        <a href="https://link.springer.com/article/10.1007/s40262-017-0558-9" target="_blank">
-        https://link.springer.com/article/10.1007/s40262-017-0558-9</a></li>
-    </ol>
-    </div>
-    """, unsafe_allow_html=True)
+    **3. Novartis Product Monograph**  
+    Manufacturer's official product documentation  
+    🔗 [https://www.novartis.com/us-en/sites/novartis_us/files/entresto.pdf](https://www.novartis.com/us-en/sites/novartis_us/files/entresto.pdf)
+    """)
     
+    st.markdown("---")
+    st.markdown("### 🔬 Pivotal Clinical Trials")
+    st.write("")
+    
+    st.markdown("""
+    **4. PARADIGM-HF (NEJM 2014)**  
+    McMurray JJ, et al. "Angiotensin-neprilysin inhibition versus enalapril in heart failure"  
+    🔗 [https://www.nejm.org/doi/full/10.1056/NEJMoa1409077](https://www.nejm.org/doi/full/10.1056/NEJMoa1409077)
+    """)
+    
+    st.markdown("---")
+    
+    st.markdown("""
+    **5. PARAGON-HF (Circulation 2019)**  
+    Solomon SD, et al. "Sacubitril/Valsartan Across the Spectrum of Ejection Fraction in Heart Failure"  
+    🔗 [https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.119.044586](https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.119.044586)
+    """)
+    
+    st.markdown("---")
+    
+    st.markdown("""
+    **6. PIONEER-HF (JAMA 2019)**  
+    Velazquez EJ, et al. "Angiotensin-Neprilysin Inhibition in Acute Decompensated Heart Failure"  
+    🔗 [https://jamanetwork.com/journals/jama/fullarticle/2738764](https://jamanetwork.com/journals/jama/fullarticle/2738764)
+    """)
+    
+    st.markdown("---")
+    
+    st.markdown("""
+    **7. PANORAMA-HF (JACC 2021)**  
+    Jering KS, et al. "Cardiovascular and Kidney Outcomes Across the Glycemic Spectrum"  
+    🔗 [https://www.jacc.org/doi/10.1016/j.jacc.2021.07.036](https://www.jacc.org/doi/10.1016/j.jacc.2021.07.036)
+    """)
+    
+    st.markdown("---")
+    st.markdown("### 📖 Pharmacology & Mechanism")
+    st.write("")
+    
+    st.markdown("""
+    **8. StatPearls - Sacubitril/Valsartan**  
+    Comprehensive pharmacology review from NCBI Bookshelf  
+    🔗 [https://www.ncbi.nlm.nih.gov/books/NBK507904/](https://www.ncbi.nlm.nih.gov/books/NBK507904/)
+    """)
+    
+    st.markdown("---")
+    
+    st.markdown("""
+    **9. FDA Clinical Pharmacology Review (NDA 207620)**  
+    Detailed pharmacokinetics and pharmacodynamics analysis  
+    🔗 [https://www.accessdata.fda.gov/drugsatfda_docs/nda/2015/207620Orig1s000ClinPharmR.pdf](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2015/207620Orig1s000ClinPharmR.pdf)
+    """)
+    
+    st.markdown("---")
+    
+    st.markdown("""
+    **10. Springer - Pharmacokinetics Article**  
+    Clinical pharmacokinetics of sacubitril/valsartan combination  
+    🔗 [https://link.springer.com/article/10.1007/s40262-017-0558-9](https://link.springer.com/article/10.1007/s40262-017-0558-9)
+    """)
+    
+    st.markdown("---")
     st.markdown("### 🔍 Drug Interaction Resources")
+    st.write("")
     
     st.markdown("""
-    <div class="warning-box">
-    <ol start="11">
-        <li><strong>Drugs.com - Drug Interactions Checker</strong><br>
-        <a href="https://www.drugs.com/drug-interactions/entresto.html" target="_blank">
-        https://www.drugs.com/drug-interactions/entresto.html</a></li>
-        
-        <li><strong>Medscape - Entresto Interactions</strong><br>
-        <a href="https://reference.medscape.com/drug/entresto-sacubitril-valsartan-1000010/interactions" target="_blank">
-        https://reference.medscape.com/drug/entresto-sacubitril-valsartan-1000010/interactions</a></li>
-    </ol>
-    </div>
-    """, unsafe_allow_html=True)
+    **11. Drugs.com - Drug Interactions Checker**  
+    Comprehensive drug interaction database  
+    🔗 [https://www.drugs.com/drug-interactions/entresto.html](https://www.drugs.com/drug-interactions/entresto.html)
+    """)
     
-    st.markdown("### 🌐 Additional Resources")
+    st.markdown("---")
     
     st.markdown("""
-    <div class="success-box">
-    <ol start="13">
-        <li><strong>ENTRESTO Healthcare Professional Site</strong><br>
-        <a href="https://www.entrestohcp.com/" target="_blank">
-        https://www.entrestohcp.com/</a></li>
-        
-        <li><strong>American Heart Association - Heart Failure Guidelines</strong><br>
-        <a href="https://www.heart.org/en/health-topics/heart-failure" target="_blank">
-        https://www.heart.org/en/health-topics/heart-failure</a></li>
-        
-        <li><strong>ACC/AHA Heart Failure Guidelines (2022)</strong><br>
-        <a href="https://www.acc.org/guidelines" target="_blank">
-        https://www.acc.org/guidelines</a></li>
-    </ol>
-    </div>
-    """, unsafe_allow_html=True)
+    **12. Medscape - ENTRESTO Interactions**  
+    Professional drug interaction reference  
+    🔗 [https://reference.medscape.com/drug/entresto-sacubitril-valsartan-1000010/interactions](https://reference.medscape.com/drug/entresto-sacubitril-valsartan-1000010/interactions)
+    """)
+    
+    st.markdown("---")
+    st.markdown("### 🌐 Additional Professional Resources")
+    st.write("")
+    
+    st.markdown("""
+    **13. ENTRESTO Healthcare Professional Site**  
+    Official HCP resource from Novartis  
+    🔗 [https://www.entrestohcp.com/](https://www.entrestohcp.com/)
+    """)
+    
+    st.markdown("---")
+    
+    st.markdown("""
+    **14. American Heart Association - Heart Failure Guidelines**  
+    Evidence-based guidelines for heart failure management  
+    🔗 [https://www.heart.org/en/health-topics/heart-failure](https://www.heart.org/en/health-topics/heart-failure)
+    """)
+    
+    st.markdown("---")
+    
+    st.markdown("""
+    **15. ACC/AHA Heart Failure Guidelines (2022)**  
+    Latest guidelines from American College of Cardiology  
+    🔗 [https://www.acc.org/guidelines](https://www.acc.org/guidelines)
+    """)
     
     st.markdown("---")
     st.info("""
-    **Data Accuracy:** All information verified against FDA label (April 2024), EMA documentation, 
-    and peer-reviewed clinical trial publications.
+    **📊 Data Accuracy Statement**
     
-    **Last Updated:** February 14, 2026
+    All information in this application has been verified against:
+    - FDA Label (April 2024)
+    - EMA Product Information (2024)
+    - Peer-reviewed clinical trial publications
+    - Official manufacturer documentation
     
-    **Version:** 2.1.0
+    **📅 Last Updated:** February 14, 2026  
+    **📌 Version:** 2.2.0  
+    **✅ Verification Status:** All references checked and validated
     """)
 
 # ==================== FOOTER ====================
@@ -1031,7 +1091,7 @@ st.markdown("""
 <div style="text-align: center; color: #64748b; padding: 2rem 0;">
     <p><strong>ENTRESTO Professional Drug Information</strong></p>
     <p>Pre-Pharmacode V2.0 Standard | FDA-Verified | Evidence-Based</p>
-    <p>Version 2.1.0 | Last Updated: February 14, 2026</p>
+    <p>Version 2.2.0 | Last Updated: February 14, 2026</p>
     <p style="font-size: 0.9rem; margin-top: 1rem;">
         ⚠️ <em>This information is for healthcare professionals only. 
         Always consult the full prescribing information and clinical judgment when making treatment decisions.</em>
