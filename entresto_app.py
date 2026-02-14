@@ -1,7 +1,7 @@
 """
 ENTRESTO (Sacubitril/Valsartan) - Professional Drug Information App
 Pre-Pharmacode V2.0 Standard
-FDA-verified | Evidence-based | Updated 2026-02-13
+FDA-verified | Evidence-based | Updated 2026-02-14
 """
 
 import streamlit as st
@@ -13,7 +13,7 @@ st.set_page_config(
     page_title="ENTRESTO (Sacubitril/Valsartan) Info",
     page_icon="💊",
     layout="wide",
-    initial_sidebar_state="collapsed"  # إخفاء القائمة الجانبية
+    initial_sidebar_state="collapsed"
 )
 
 # ==================== CUSTOM CSS ====================
@@ -111,19 +111,25 @@ st.markdown("""
             height: 40px;
         }
     }
+    
+    /* تنسيق صورة الدواء */
+    .drug-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 # ==================== HEADER WITH DRUG IMAGE ====================
-col_img, col_title = st.columns([1, 3])
+st.markdown('<h1 class="main-header">💊 ENTRESTO (Sacubitril/Valsartan)</h1>', unsafe_allow_html=True)
+st.markdown('<p class="sub-header">✅ FDA-verified • 🔬 Evidence-based • 📅 Updated February 2026</p>', unsafe_allow_html=True)
 
-with col_img:
-    st.image("https://sspark.genspark.ai/cfimages?u1=Muvp4AIB6G6Hg6MJeOOkZrhTW09LRwYzPlOQdDqaCTEDxui%2Bhh9Hujjrk1Hp7bxR%2Ffgx4jzdmRna2kYAqXQGr2sxsSUp3tRUW21DgGbzesaR%2BIF7RSUdNj2HbVAldh9sSKjAUyXUtGPT48OjDuIn0XU6&u2=ZoKqDbxo4ID3Wy2m&width=2560", 
-             width=150)
-
-with col_title:
-    st.markdown('<h1 class="main-header">💊 ENTRESTO<br>(Sacubitril/Valsartan)</h1>', unsafe_allow_html=True)
-    st.markdown('<p class="sub-header">✅ FDA-verified • 🔬 Evidence-based • 📅 Updated February 2026</p>', unsafe_allow_html=True)
+# صورة الدواء في الوسط
+st.markdown('<div class="drug-image-container">', unsafe_allow_html=True)
+st.image("https://www.genspark.ai/api/files/s/27Hnf0Wm", width=600, use_column_width=False)
+st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("---")
 
@@ -134,6 +140,7 @@ tabs = st.tabs([
     "💊 Dosage",
     "⚖️ Pharmacokinetics",
     "🚫 Contraindications",
+    "⚠️ Side Effects",
     "💊⚖️ Interactions",
     "📊 Clinical Trials",
     "📚 References"
@@ -363,7 +370,7 @@ with tabs[2]:
 with tabs[3]:
     st.header("⚖️ Pharmacokinetics")
     
-    st.markdown("### 📊 PK Parameters Summary")
+    st.markdown("### 📊 Pharmacokinetic Parameters Summary")
     
     pk_df = pd.DataFrame({
         "#": [1, 2, 3, 4, 5, 6],
@@ -544,26 +551,136 @@ with tabs[4]:
         - NSAIDs (may worsen function)
         - Volume depletion
         """)
+
+# ==================== TAB 6: SIDE EFFECTS ====================
+with tabs[5]:
+    st.header("⚠️ Adverse Reactions (Side Effects)")
     
-    st.markdown("### 🩺 Adverse Reactions (>2% and > placebo)")
+    st.markdown("### 📊 Common Adverse Reactions (>2% and > placebo)")
     
     adverse_df = pd.DataFrame({
-        "#": [1, 2, 3, 4, 5, 6],
+        "#": [1, 2, 3, 4, 5, 6, 7, 8],
         "Adverse Reaction": [
             "Hypotension",
-            "Hyperkalemia",
+            "Hyperkalemia (K+ ≥6.0 mEq/L)",
             "Cough",
             "Dizziness",
-            "Renal impairment",
-            "Angioedema"
+            "Renal impairment (Creatinine increase)",
+            "Angioedema",
+            "Fatigue",
+            "Nausea"
         ],
-        "ENTRESTO": ["18%", "12%", "9%", "6%", "3%", "0.5%"],
-        "Enalapril": ["12%", "14%", "13%", "5%", "3%", "0.2%"]
+        "ENTRESTO (%)": ["18%", "12%", "9%", "6%", "3%", "0.5%", "2%", "2%"],
+        "Enalapril (%)": ["12%", "14%", "13%", "5%", "3%", "0.2%", "2%", "1%"],
+        "Significance": [
+            "Higher - Monitor BP",
+            "Lower - Favorable",
+            "Lower - Major advantage",
+            "Similar",
+            "Similar",
+            "Higher - Critical warning",
+            "Similar",
+            "Slightly higher"
+        ]
     })
     st.dataframe(adverse_df, use_container_width=True, hide_index=True)
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("### 🔴 Serious Adverse Reactions")
+        st.markdown("""
+        <div class="warning-box">
+        <h4>⚠️ Life-Threatening:</h4>
+        <ul>
+            <li><strong>Angioedema (0.5%):</strong> Swelling of face, lips, tongue, throat. Higher in Black patients (2.4%). Discontinue immediately.</li>
+            <li><strong>Severe Hypotension:</strong> May cause syncope, dizziness, falls. Monitor BP closely in first weeks.</li>
+            <li><strong>Acute Kidney Injury:</strong> Risk increases with dehydration, NSAIDs, or pre-existing renal disease.</li>
+            <li><strong>Hyperkalemia (K+ >6.0):</strong> Can cause cardiac arrhythmias. Monitor in renal impairment.</li>
+        </ul>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("### 🟡 Less Common (<2%)")
+        st.info("""
+        - Syncope (fainting)
+        - Orthostatic hypotension
+        - Vertigo
+        - Headache
+        - Gastrointestinal upset
+        - Rash or pruritus
+        - Elevated liver enzymes
+        """)
+    
+    with col2:
+        st.markdown("### 📈 Frequency by Severity")
+        severity_df = pd.DataFrame({
+            "#": [1, 2, 3, 4],
+            "Severity": ["Mild", "Moderate", "Severe", "Life-threatening"],
+            "Examples": [
+                "Cough, nausea, fatigue",
+                "Dizziness, hypotension",
+                "Renal impairment, hyperkalemia",
+                "Angioedema, severe hypotension"
+            ],
+            "Frequency": ["5-10%", "10-20%", "2-5%", "<1%"]
+        })
+        st.dataframe(severity_df, use_container_width=True, hide_index=True)
+        
+        st.markdown("### ✅ Advantages Over ACE Inhibitors")
+        st.success("""
+        **Lower Incidence of:**
+        - ✅ Cough (9% vs 13% enalapril)
+        - ✅ Hyperkalemia (12% vs 14%)
+        
+        **Similar or Better:**
+        - Renal impairment
+        - Fatigue
+        - Dizziness
+        
+        **Higher (Monitor):**
+        - Hypotension (18% vs 12%)
+        - Angioedema (0.5% vs 0.2%)
+        """)
+    
+    st.markdown("### 🩺 Special Population Considerations")
+    
+    special_pop_ae_df = pd.DataFrame({
+        "#": [1, 2, 3, 4],
+        "Population": [
+            "Black patients",
+            "Elderly (≥65 years)",
+            "Renal impairment (eGFR <60)",
+            "Diabetes mellitus"
+        ],
+        "Specific Risks": [
+            "Angioedema 2.4% (vs 0.5% overall)",
+            "Higher hypotension risk due to reduced baroreceptor sensitivity",
+            "Increased hyperkalemia and AKI risk",
+            "Higher hyperkalemia with K+ supplements or aliskiren"
+        ],
+        "Monitoring": [
+            "Watch for facial/throat swelling, especially in first month",
+            "Frequent BP monitoring, assess orthostatic changes",
+            "Baseline and periodic K+, SCr, eGFR",
+            "Monitor K+ closely, avoid aliskiren"
+        ]
+    })
+    st.dataframe(special_pop_ae_df, use_container_width=True, hide_index=True)
+    
+    st.markdown("### 🚨 When to Seek Immediate Medical Attention")
+    st.error("""
+    **Stop drug and seek emergency care if:**
+    - Swelling of face, lips, tongue, or throat (angioedema)
+    - Difficulty breathing or swallowing
+    - Severe dizziness or fainting
+    - Chest pain or irregular heartbeat
+    - Severe or persistent vomiting/diarrhea
+    - Signs of kidney problems (decreased urination, swelling in legs)
+    """)
 
-# ==================== TAB 6: DRUG INTERACTIONS ====================
-with tabs[5]:
+# ==================== TAB 7: DRUG INTERACTIONS ====================
+with tabs[6]:
     st.header("💊⚖️ Drug Interactions")
     
     st.markdown("### 🚫 Contraindicated Combinations")
@@ -636,16 +753,16 @@ with tabs[5]:
             "Carvedilol"
         ],
         "Study Result": [
-            "No change in INR or warfarin PK",
+            "No change in INR or warfarin pharmacokinetics",
             "No change in digoxin levels",
-            "No change in statin PK",
-            "No change in statin PK",
-            "No PK interaction",
-            "No PK interaction",
-            "No change in metformin PK",
+            "No change in statin pharmacokinetics",
+            "No change in statin pharmacokinetics",
+            "No pharmacokinetic interaction",
+            "No pharmacokinetic interaction",
+            "No change in metformin pharmacokinetics",
             "No change in diuretic effect",
             "No change in diuretic effect",
-            "No PK interaction"
+            "No pharmacokinetic interaction"
         ]
     })
     st.dataframe(safe_df, use_container_width=True, hide_index=True)
@@ -671,8 +788,8 @@ with tabs[5]:
     ✅ CYP inhibitors (e.g., ketoconazole) or inducers (e.g., rifampin) unlikely to affect ENTRESTO levels
     """)
 
-# ==================== TAB 7: CLINICAL TRIALS ====================
-with tabs[6]:
+# ==================== TAB 8: CLINICAL TRIALS ====================
+with tabs[7]:
     st.header("📊 Clinical Trials")
     
     st.markdown("### 🏆 Landmark Trial: PARADIGM-HF")
@@ -790,8 +907,8 @@ with tabs[6]:
     - Consistent across subgroups (age, gender, race, renal function)
     """)
 
-# ==================== TAB 8: REFERENCES ====================
-with tabs[7]:
+# ==================== TAB 9: REFERENCES ====================
+with tabs[8]:
     st.header("📚 References and Sources")
     
     st.markdown("### 📋 Primary Sources")
@@ -903,9 +1020,9 @@ with tabs[7]:
     **Data Accuracy:** All information verified against FDA label (April 2024), EMA documentation, 
     and peer-reviewed clinical trial publications.
     
-    **Last Updated:** February 13, 2026
+    **Last Updated:** February 14, 2026
     
-    **Version:** 2.0.0
+    **Version:** 2.1.0
     """)
 
 # ==================== FOOTER ====================
@@ -914,7 +1031,7 @@ st.markdown("""
 <div style="text-align: center; color: #64748b; padding: 2rem 0;">
     <p><strong>ENTRESTO Professional Drug Information</strong></p>
     <p>Pre-Pharmacode V2.0 Standard | FDA-Verified | Evidence-Based</p>
-    <p>Version 2.0.0 | Last Updated: February 13, 2026</p>
+    <p>Version 2.1.0 | Last Updated: February 14, 2026</p>
     <p style="font-size: 0.9rem; margin-top: 1rem;">
         ⚠️ <em>This information is for healthcare professionals only. 
         Always consult the full prescribing information and clinical judgment when making treatment decisions.</em>
